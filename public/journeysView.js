@@ -1,9 +1,10 @@
-var JourneysView = function(element){
+var JourneysView = function(element, title){
   this.element = element;
+  this.title = title;
 };
 
 JourneysView.prototype.display = function(journeys){
-  this.element.innerHTML = '<h3>Drivers</h3>';
+  this.element.innerHTML = '<h3>' + this.title + '</h3>';
   journeys.forEach(function(journey){
     var div = document.createElement('div');
     div.classList.add('journey');

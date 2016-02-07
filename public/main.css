@@ -9,6 +9,11 @@ body {
   width: 600px;
 }
 
+.journeys {
+  display: inline-block;
+  vertical-align: top;
+}
+
 .journey {
   border: 1px solid #000;
 }

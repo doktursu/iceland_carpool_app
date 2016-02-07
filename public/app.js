@@ -3,20 +3,28 @@ window.onload = function(){
 
   var iceland = {lat: 65, lng: -18.6};
   var map = new Map(iceland);
+  var directions = new Directions(map.googleMap);
 
   var driver = new Driver();
-  var driverJourneys = new JourneysView(document.querySelector('#driver-journeys'));
-  console.log(document.querySelector('#driver-journeys'));
+  var driverJourneys = new JourneysView(document.querySelector('#driver-journeys'), 'Drivers');
+  driver.onupdate = function(journeys){
+    driverJourneys.display(journeys);
 
-  driver.onupdate = function(){
-    driverJourneys.display(this.journeys);
-    map.geocodeAddress(this.journeys[0].from);
+    var journey = journeys[0];
+    directions.render(journey.from, journey.to);
   };
+
+  var passenger = new Passenger();
+  var passengerJourneys = new JourneysView(document.querySelector('#passenger-journeys'), 'Passengers');
+  passenger.onupdate = function(journeys){
+    passengerJourneys.display(journeys);
+  };
+  passenger.populate();
+  
 
   driver.populate();
 
-  var passenger = new Passenger();
-  passenger.populate();
+
 
   // document.addEventListener('click', function(){
   //   document.body.style.backgroundColor = 'red';

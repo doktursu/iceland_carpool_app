@@ -1,5 +1,6 @@
 var Passenger = function(){
   this.journeys = [];
+  this.onupdate = undefined;
 };
 
 Passenger.prototype.populate = function(){
@@ -10,6 +11,7 @@ Passenger.prototype.populate = function(){
     if(request.status === 200){
       var journeys = JSON.parse(request.responseText).results;
       this.journeys = journeys;
+      this.onupdate(journeys);
       console.log('passengers', this.journeys);
     }
   }.bind(this);
