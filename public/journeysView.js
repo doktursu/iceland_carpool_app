@@ -1,11 +1,13 @@
 var JourneysView = function(element, title){
   this.element = element;
   this.title = title;
+  this.onclick = undefined;
 };
 
 JourneysView.prototype.display = function(journeys){
   this.element.innerHTML = '<h3>' + this.title + '</h3>';
   journeys.forEach(function(journey){
+    
     var div = document.createElement('div');
     div.classList.add('journey');
     this.element.appendChild(div);
@@ -25,5 +27,12 @@ JourneysView.prototype.display = function(journeys){
     var time = document.createElement('p');
     time.innerHTML = '<span>Time:</span> ' + journey.time;
     div.appendChild(time);
+
+    div.addEventListener('click', function(){
+      this.onclick(journey);
+    }.bind(this));
+
   }.bind(this));
 };
+
+// JourneyView

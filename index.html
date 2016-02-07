@@ -11,6 +11,7 @@
     <script src='journeysView.js'></script>
     <script src='directions.js'></script>
     <script src='map.js'></script>
+    <script src='filterForm.js'></script>
     <script src='select.js'></script>
     <script src='app.js'></script>
   </head>
@@ -19,10 +20,13 @@
     <div id="map"></div>
     <div>
       <input type="text" id="search" size="40">
-      <label for="select-from">From:</label>
-      <select name="select-from" id="select-from"></select>
-      <label for="select-to">To:</label>
-      <select name="select-to" id="select-to"></select>
+      <form id="filter-journey">
+        <label for="select-from">From:</label>
+        <select name="select-from" id="select-from"></select>
+        <label for="select-to">To:</label>
+        <select name="select-to" id="select-to"></select>
+        <input type="button" id="filter-submit" value="Filter">
+      </form>
     </div>
     <div id="driver-journeys" class="journeys"></div>
     <div id="passenger-journeys" class="journeys"></div>

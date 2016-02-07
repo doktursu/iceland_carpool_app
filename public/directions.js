@@ -1,10 +1,15 @@
 var Directions = function(map){
   this.map = map;
+  this.directionsDisplay = new google.maps.DirectionsRenderer();
 };
 
 Directions.prototype.render = function(start, end){
-  var directionsDisplay = new google.maps.DirectionsRenderer();
-  directionsDisplay.setMap(this.map);
+
+  this.directionsDisplay.setMap(null);
+  this.directionsDisplay = null;
+
+  this.directionsDisplay = new google.maps.DirectionsRenderer();
+  this.directionsDisplay.setMap(this.map);
 
   var request = {
     origin: start,
@@ -15,7 +20,7 @@ Directions.prototype.render = function(start, end){
   var directionsService = new google.maps.DirectionsService
   directionsService.route(request, function(result, status){
     if(status == google.maps.DirectionsStatus.OK){
-      directionsDisplay.setDirections(result);
+      this.directionsDisplay.setDirections(result);
     }
-  });
+  }.bind(this));
 };

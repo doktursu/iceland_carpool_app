@@ -36,3 +36,12 @@ Driver.prototype.destinations = function(){
     return result;
   }, []);
 };
+
+Driver.prototype.filterFromTo = function(start, end){
+  return this.journeys.reduce(function(result, journey){
+    if(journey.from === start && journey.to === end){
+      result.push(journey);
+    }
+    return result;
+  }, []);
+}
