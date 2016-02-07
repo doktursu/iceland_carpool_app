@@ -5,6 +5,9 @@ window.onload = function(){
   var map = new Map(iceland);
   var directions = new Directions(map.googleMap);
 
+  var selectFrom = new Select(document.querySelector('#select-from'));
+  var selectTo = new Select(document.querySelector('#select-to'));
+
   var driver = new Driver();
   var driverJourneys = new JourneysView(document.querySelector('#driver-journeys'), 'Drivers');
   driver.onupdate = function(journeys){
@@ -12,6 +15,9 @@ window.onload = function(){
 
     var journey = journeys[0];
     directions.render(journey.from, journey.to);
+
+    selectFrom.populate(this.origins());
+    selectTo.populate(this.destinations());
   };
 
   var passenger = new Passenger();

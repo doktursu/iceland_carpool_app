@@ -18,3 +18,21 @@ Driver.prototype.populate = function(){
   request.send(null);
   return;
 };
+
+Driver.prototype.origins = function(){
+  return this.journeys.reduce(function(result, journey){
+    if(!result.includes(journey.from)){
+      result.push(journey.from);
+    }
+    return result;
+  }, []);
+};
+
+Driver.prototype.destinations = function(){
+  return this.journeys.reduce(function(result, journey){
+    if(!result.includes(journey.to)){
+      result.push(journey.to);
+    }
+    return result;
+  }, []);
+};
