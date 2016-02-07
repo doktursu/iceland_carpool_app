@@ -3,6 +3,9 @@ window.onload = function(){
 
   var map = new Map({lat: 0, lng: 0});
 
+  var driver = new Driver();
+  driver.populate();
+
   // document.addEventListener('click', function(){
   //   document.body.style.backgroundColor = 'red';
   // });
