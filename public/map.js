@@ -1,8 +1,9 @@
 var Map = function(centre){
   this.googleMap = new google.maps.Map(document.querySelector('#map'), {
     center: centre,
-    zoom: 1
+    zoom: 6
   });
+
 };
 
 Map.prototype.addMarker = function(latLng, title){

@@ -1,4 +1,18 @@
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+
 #map {
   height: 400px;
   width: 600px;
+}
+
+.journey {
+  border: 1px solid #000;
+}
+
+.journey span {
+  color: red;
 }

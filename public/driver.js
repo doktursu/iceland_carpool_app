@@ -1,5 +1,6 @@
 var Driver = function(){
   this.journeys = [];
+  this.onupdate = undefined;
 };
 
 Driver.prototype.populate = function(){
@@ -8,9 +9,10 @@ Driver.prototype.populate = function(){
   request.open('GET', url);
   request.onload = function(){
     if(request.status === 200){
-      var journeys = JSON.parse(request.responseText);
+      var journeys = JSON.parse(request.responseText).results;
       this.journeys = journeys;
-      console.log(this.journeys);
+      this.onupdate(journeys);
+      console.log('drivers', this.journeys);
     }
   }.bind(this);
   request.send(null);

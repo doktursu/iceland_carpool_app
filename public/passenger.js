@@ -8,7 +8,7 @@ Passenger.prototype.populate = function(){
   request.open('GET', url);
   request.onload = function(){
     if(request.status === 200){
-      var journeys = JSON.parse(request.responseText);
+      var journeys = JSON.parse(request.responseText).results;
       this.journeys = journeys;
       console.log('passengers', this.journeys);
     }

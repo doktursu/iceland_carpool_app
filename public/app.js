@@ -1,9 +1,17 @@
 window.onload = function(){
   console.log('App started');
 
-  var map = new Map({lat: 0, lng: 0});
+  var iceland = {lat: 65, lng: -18.6};
+  var map = new Map(iceland);
 
   var driver = new Driver();
+  var driverJourneys = new JourneysView(document.querySelector('#driver-journeys'));
+  console.log(document.querySelector('#driver-journeys'));
+
+  driver.onupdate = function(){
+    driverJourneys.display(this.journeys);
+  };
+
   driver.populate();
 
   var passenger = new Passenger();
