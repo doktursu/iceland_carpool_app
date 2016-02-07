@@ -6,6 +6,9 @@ window.onload = function(){
   var driver = new Driver();
   driver.populate();
 
+  var passenger = new Passenger();
+  passenger.populate();
+
   // document.addEventListener('click', function(){
   //   document.body.style.backgroundColor = 'red';
   // });
