@@ -10,6 +10,7 @@ window.onload = function(){
 
   driver.onupdate = function(){
     driverJourneys.display(this.journeys);
+    map.geocodeAddress(this.journeys[0].from);
   };
 
   driver.populate();
