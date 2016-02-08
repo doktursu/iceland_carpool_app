@@ -19,9 +19,6 @@ window.onload = function(){
   driver.onupdate = function(journeys){
     driverJourneys.display(journeys);
 
-    // var journey = journeys[0];
-    // directions.render(journey.from, journey.to);
-
     selectFrom.populate(this.origins());
     selectTo.populate(this.destinations());
   };
@@ -59,22 +56,6 @@ window.onload = function(){
   passenger.populate();
   driver.populate();
 
-
-
-  // document.addEventListener('click', function(){
-  //   document.body.style.backgroundColor = 'red';
-  // });
-
-  // document.addEventListener('keydown', function(e){
-  //   switch (e.code) {
-  //     case 'KeyS':
-  //       document.body.style.backgroundColor = 'blue';
-  //       break;
-  //     case 'KeyW':
-  //       document.body.style.backgroundColor = 'red';
-  //       break;
-  //   };
-  // });
 };
 
 
