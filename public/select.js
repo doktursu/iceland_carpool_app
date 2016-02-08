@@ -1,5 +1,10 @@
 var Select = function(select){
   this.select = select;
+  this.onchange = undefined;
+  this.select.addEventListener('change', function(){
+    var city = this.select.value;
+    this.onchange(city);
+  }.bind(this));
 };
 
 Select.prototype.populate = function(items){

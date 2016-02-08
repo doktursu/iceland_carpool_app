@@ -6,7 +6,7 @@ var FilterForm = function(form){
 };
 
 FilterForm.prototype.populate = function(origins, destinations){
-  this.selectFrom.innerHTML = '';
+  this.selectFrom.innerHTML = '<option value="Anywhere">Anywhere</option>';
   origins.forEach(function(origin){
     var option = document.createElement('option');
     option.text = origin;
@@ -14,7 +14,7 @@ FilterForm.prototype.populate = function(origins, destinations){
     this.selectFrom.appendChild(option);
   }.bind(this));
 
-  this.selectTo.innerHTML = '';
+  this.selectTo.innerHTML = '<option value="Anywhere">Anywhere</option>';
   destinations.forEach(function(destination){
     var option = document.createElement('option');
     option.text = destination;

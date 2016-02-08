@@ -20,6 +20,11 @@ body {
 
 .journey {
   border: 1px solid #000;
+  cursor: pointer;
+}
+
+.journey:hover {
+  background-color: rgb(253,256,257);
 }
 
 .journey span {

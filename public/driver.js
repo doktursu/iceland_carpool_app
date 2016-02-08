@@ -28,8 +28,9 @@ Driver.prototype.origins = function(){
   }, []);
 };
 
-Driver.prototype.destinations = function(){
-  return this.journeys.reduce(function(result, journey){
+Driver.prototype.destinations = function(journeys){
+  var journeys = journeys || this.journeys;
+  return journeys.reduce(function(result, journey){
     if(!result.includes(journey.to)){
       result.push(journey.to);
     }
@@ -37,11 +38,22 @@ Driver.prototype.destinations = function(){
   }, []);
 };
 
-Driver.prototype.filterFromTo = function(start, end){
-  return this.journeys.reduce(function(result, journey){
+Driver.prototype.filterFromTo = function(start, end, journeys){
+  var journeys = journeys || this.journeys;
+  return journeys.reduce(function(result, journey){
     if(journey.from === start && journey.to === end){
       result.push(journey);
     }
     return result;
   }, []);
-}
+};
+
+Driver.prototype.filterFrom = function(start, journeys){
+  var journeys = journeys || this.journeys;
+  return this.journeys.reduce(function(result, journey){
+    if(journey.from === start){
+      result.push(journey);
+    }
+    return result;
+  }, []);
+};
